@@ -39,6 +39,12 @@ java -jar jjf.jar --latest
 
 ![MEMORY_LEAK](memory-leak.svg)
 
+- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) C code
+- ![#00a5ff](https://via.placeholder.com/15/5bc236/000000?text=+) Java code
+- ![#00a5ff](https://via.placeholder.com/15/00a5ff/000000?text=+) Inlined Java code
+- ![#00a5ff](https://via.placeholder.com/15/ffeb2a/000000?text=+) JVM code
+- ![#00a5ff](https://via.placeholder.com/15/c97a43/000000?text=+) JVM generated code (Interpreter, stubs, ...)
+
 ### jemalloc
 
 #### Technical details of Heap Profiling and Leak Checker inspired by tcmalloc
