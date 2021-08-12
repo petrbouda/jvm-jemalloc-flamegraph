@@ -24,9 +24,15 @@ the location at which the current value is stored (callee-saved registers).
 
 #### Create a PERF_FILE (symbols)
 
+- the process needs to be running
+
 ```
 create-java-perf-map.sh `pgrep -f GenerateUnsafe`
 ```
+
+#### Create jeprof heap dumps
+
+- just kill the Java process and dumps are automatically created to `/tmp`
 
 #### Generate a flamegraph
 
