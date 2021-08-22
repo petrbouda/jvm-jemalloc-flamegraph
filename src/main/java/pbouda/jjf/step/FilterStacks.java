@@ -27,12 +27,12 @@ public class FilterStacks implements Step {
         }
 
         Pattern matcher;
-        if (flags.containsKey(Flag.LATEST)) {
+        if (flags.containsKey(Flag.FILTER)) {
             String pattern = flags.get(Flag.FILTER);
             matcher = Pattern.compile(pattern);
         } else {
             // contains any Java Frame
-            matcher = Pattern.compile(".*_[j]");
+            matcher = Pattern.compile(".*_\\[j]");
         }
 
         execute0(context.getFixedStacksPath(), matcher);
