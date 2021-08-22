@@ -11,7 +11,9 @@ public enum Flag {
     PID("--pid"),
     PROFILE("--profile_dir"),
     OUTPUT("--output"),
+    FILTER("--filter"),
     LATEST("--latest", true),
+    ALL_STACKS("--all_stacks", true),
     OFFSET("--offsets", true);
 
     private static final String COMMAND_DELIMITER = "--";

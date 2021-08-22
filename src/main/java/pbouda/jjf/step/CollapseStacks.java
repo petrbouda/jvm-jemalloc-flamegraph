@@ -25,7 +25,7 @@ public class CollapseStacks implements Step {
                     .inheritIO()
                     .start();
 
-            process.waitFor(10, TimeUnit.SECONDS);
+            process.waitFor(1, TimeUnit.MINUTES);
 
             int result = process.exitValue();
 

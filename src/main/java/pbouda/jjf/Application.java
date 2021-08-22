@@ -28,6 +28,7 @@ public class Application {
             new ParseJvmSymbols(),
             new CollapseStacks(),
             new FixMissingSymbols(),
+            new FilterStacks(),
             new GenerateFlamegraph()
     );
 

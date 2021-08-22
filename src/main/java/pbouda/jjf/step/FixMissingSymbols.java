@@ -23,8 +23,9 @@ public class FixMissingSymbols implements Step {
         try {
             replaceJavaSymbols(targetPath, context.getCollapsedStacksPath(), fixingStrategy);
         } catch (Exception e) {
-            Output.error("Cannot fix missing symbols: collapsed_stacks="
-                         + context.getCollapsedStacksPath() + " fixed_symbols=" + targetPath);
+            Output.error("Cannot fix missing symbols: collapsed_stacks=" + context.getCollapsedStacksPath()
+                         + " fixed_symbols=" + targetPath
+                         + " error=" + e.getMessage(), true);
         }
 
         context.setFixedStacksPath(targetPath);

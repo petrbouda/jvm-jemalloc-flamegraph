@@ -27,12 +27,19 @@ the location at which the current value is stored (callee-saved registers).
 - the process needs to be running
 
 ```
-create-java-perf-map.sh `pgrep -f GenerateUnsafe`
+create-java-perf-map.sh `pgrep -f GenerateUnsafe` unfoldall 
+
+# unfold: Create extra entries for every codeblock inside a method 
+# that was inlined from elsewhere (named <inlined_method> in <root_method>). 
+# Be aware of the effects of 'skid' in relation with unfolding.
+# 
+# unfoldall: Similar to unfold but will include the complete inlined 
+# stack at a code location in the form
 ```
 
 #### Create jeprof heap dumps
 
-- just kill the Java process and dumps are automatically created to `/tmp`
+- just kill the Java process and dumps will be automatically created to `/tmp`
 
 #### Generate a flamegraph
 

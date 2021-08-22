@@ -24,12 +24,16 @@ public class ShiftingSymbolResolvingStrategy implements SymbolResolvingStrategy 
         Map.Entry<Long, Symbol> lower = symbols.lowerEntry(address);
         Map.Entry<Long, Symbol> higher = symbols.higherEntry(address);
 
-        Symbol lowerSymbol = lower.getValue();
-        boolean isShifted = fixedShiftedAddress(address, lower.getValue(), higher.getValue(), tolerance);
-        if (address < (lowerSymbol.address() + lowerSymbol.offset()) && !isShifted) {
-            return lowerSymbol;
+        if (lower != null && higher != null) {
+            Symbol lowerSymbol = lower.getValue();
+            Symbol higherSymbol = higher.getValue();
+
+            boolean isShifted = fixedShiftedAddress(address, lowerSymbol, higherSymbol, tolerance);
+            return address < (lowerSymbol.address() + lowerSymbol.offset()) && !isShifted
+                    ? lowerSymbol
+                    : higherSymbol;
         } else {
-            return higher.getValue();
+            return higher == null ? lower.getValue() : higher.getValue();
         }
     }
 
