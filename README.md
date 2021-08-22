@@ -1,5 +1,7 @@
 # JVM and JEMALLOC Flamegraphs
 
+- more complicated example: https://github.com/petrbouda/netty-native-leak-flamegraph
+
 ### How to generate a flamegraph
 
 #### Start a leaking program
