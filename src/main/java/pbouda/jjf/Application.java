@@ -5,6 +5,7 @@ import pbouda.jjf.checker.EnvVariableChecker;
 import pbouda.jjf.checker.JeprofChecker;
 import pbouda.jjf.step.*;
 import pbouda.jjf.strategy.CollapsedStackFixingStrategy;
+import pbouda.jjf.strategy.NoOpSymbolResolvingStrategy;
 import pbouda.jjf.strategy.ShiftingSymbolResolvingStrategy;
 import pbouda.jjf.strategy.StackFixingStrategy;
 
@@ -41,6 +42,7 @@ public class Application {
 
         Function<MutableContext, StackFixingStrategy> fixingStrategyFactory = context ->
                 new CollapsedStackFixingStrategy(context, new ShiftingSymbolResolvingStrategy());
+//                new CollapsedStackFixingStrategy(context, new NoOpSymbolResolvingStrategy());
 
         boolean addOffsets = flags.containsKey(Flag.OFFSET);
 

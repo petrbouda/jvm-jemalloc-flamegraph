@@ -31,7 +31,7 @@ public class CollapsedStackFixingStrategy implements StackFixingStrategy {
                         Symbol resolvedSymbol = symbolResolvingStrategy.resolve(symbols, address);
                         return resolvedSymbol != null
                                 ? formatSymbol(resolvedSymbol, hexAddress, addOffset)
-                                : "<no-symbol>";
+                                : "<no-symbol> " + formatAddress(hexAddress);
                     } else {
                         return symbolOrAddress;
                     }
@@ -40,9 +40,13 @@ public class CollapsedStackFixingStrategy implements StackFixingStrategy {
     }
 
     private static String formatSymbol(Symbol symbol, String hexAddress, boolean addOffset) {
-        String offset = addOffset ? "<" + hexAddress + ">" : "";
+        String offset = addOffset ? formatAddress(hexAddress) : "";
         return symbol.symbol()
                 .replaceFirst("_\\[j]", offset + "_[j]")
                 .replaceFirst("_\\[k]", offset + "_[k]");
+    }
+
+    private static String formatAddress(String hexAddress) {
+        return "<" + hexAddress + ">";
     }
 }

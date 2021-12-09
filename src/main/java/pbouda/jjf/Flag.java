@@ -13,7 +13,7 @@ public enum Flag {
     OUTPUT("--output"),
     FILTER("--filter"),
     LATEST("--latest", true),
-    ALL_STACKS("--all_stacks", true),
+    ALL_STACKS("--allstacks", true),
     OFFSET("--offsets", true);
 
     private static final String COMMAND_DELIMITER = "--";
